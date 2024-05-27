@@ -1,30 +1,44 @@
-# React + TypeScript + Vite
+# Infobae - React - Challenge
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este repositorio se crea para completar el desafio tecnico proporcionado por la empresa infobae.
+## Enunciado
 
-Currently, two official plugins are available:
+Crear un Blog usando un api, la documentación sería: Dummy API Getting Started
+El objetivo es crear un webapp con las siguientes funcionalidades:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+●	Ver los Post, con imagen principal, con tags y el usuario quien publica.
 
-## Expanding the ESLint configuration
+●	Al dar click en el Post ver los comentarios que tiene, si aplica (puede ser modal o por url)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+●	Sobre la vista de los Post, tener un listado de los tags disponibles y filtrar la vista acorde.
 
-- Configure the top-level `parserOptions` property like this:
+●	Crear una vista protegida por algún método de autenticación (Google SignIn), listar usuarios de la plataforma con foto.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+●	Persistir datos contra base de datos no relacional.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+A tener en cuenta:
+➔	Tiempo de prueba máximo 4 hrs
+
+➔	Entregable en GitHub con Github Pages
+
+➔	No olvidar el README.md del proyecto con comentarios del proyecto.
+
+➔	Compartir el .env ( recomendado ) por correo.
+
+➔	Crear commit cada hora para revisar progreso.
+
+➔	La parte gráfica sería creatividad del desarrollador ( behance, dribbble, envato... ) - compartir la imagen o url en README.
+
+
+## Comentarios
+
+Se completaron los puntos sugeridos. Tuve un problema con la pagina de Google Cloud la cual no me dejo crear un projecto por ende no pude usar la data base y el servicio de Sing in.
+Hice las implementaciones, pero no funcionan, dado que no tenia las credenciales.
+
+Me falto tiempo para terminar de pulir detalles, por lo que se agradece su feedback con las correciones sugeridas.
+
+Saludos.
+## Authors
+
+- [@angryPotatoFace](https://www.github.com/angryPotatoFace)
+
