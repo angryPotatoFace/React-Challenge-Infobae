@@ -1,37 +1,28 @@
-import { useEffect, useState } from "react";
 import HeaderApp from "../components/HeaderApp";
+import ModalComments from "../components/ModalComments";
 import Post from "../components/Post";
-import { getPost } from "../services/Post";
+import useFetchData from "../hooks/fetchData";
 
 function HomePage() {
 
-    const [data, setData] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    const {data, loading, error } = useFetchData();
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-              const response = await getPost()
-              console.log(response);
-            } catch (err) {
-              setError(err);
-            } finally {
-              setLoading(false);
-            }
-        };
-      
-        fetchData();
-    }, []);
+    if (loading) return ;
+    if (error) return <p>Error: {error.message}</p>;
 
     return ( 
     <>
         <HeaderApp />
         <h1 className=" mt-10 text-orange-500 text-center font-semibold text-7xl">InfoBae</h1>
+        
         <div className="ml-8">
-            <Post title1={undefined} description1={undefined} author1={undefined} img1={undefined}/>
+            {
+                loading?
+                <p>Loading...</p>
+                :
+                data!.map( p => <Post title={p.text} tags={p.tags} author={`${p.owner.firstName} ${p.owner.lastName}`} img={p.image}/>)
+            }
         </div>
-
     </> 
     );
 }
