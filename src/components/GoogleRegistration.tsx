@@ -1,6 +1,5 @@
 import { GoogleLogin } from "@react-oauth/google";
 
-
 function GoogleRegistration() {
     return (
     <div className="mx-auto mt-8 w-96">
@@ -15,5 +14,4 @@ function GoogleRegistration() {
     </div>)
     ;
 }
-
 export default GoogleRegistration;

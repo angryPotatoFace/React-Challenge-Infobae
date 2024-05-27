@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState, useEffect } from 'react';
 import { getPost } from '../services/Post';
 
@@ -31,7 +32,7 @@ const useFetchData = () => {
         const response = await getPost();
         setData(response.data);
         console.log(response);
-      } catch (err) {
+      } catch (err: any) {
         setError(err);
       } finally {
         setLoading(false);

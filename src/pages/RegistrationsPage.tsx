@@ -1,4 +1,3 @@
-import { GoogleLogin } from "@react-oauth/google";
 import Footer from "../components/Footer";
 import HeaderApp from "../components/HeaderApp";
 import RegistrationForm from "../components/RegistrationForm";

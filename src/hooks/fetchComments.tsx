@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState, useEffect } from 'react';
 import { getComments } from '../services/Comments';
 
@@ -18,9 +19,9 @@ interface IComments {
 
 const useFetchComments = () => {
   
-  const [data, setData] = useState<[IComments] | null>() ;
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<Error | null>(null);
+  const [CData, setData] = useState<[IComments] | null>() ;
+  const [CLoading, setLoading] = useState(true);
+  const [CError, setError] = useState<Error | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -28,7 +29,7 @@ const useFetchComments = () => {
         const response = await getComments();
         setData(response.data);
         console.log(response);
-      } catch (err) {
+      } catch (err: any) {
         setError(err);
       } finally {
         setLoading(false);
@@ -38,7 +39,7 @@ const useFetchComments = () => {
     fetchData();
   }, []);
 
-  return { data, loading, error };
+  return { CData, CLoading, CError };
 };
 
 export default useFetchComments;

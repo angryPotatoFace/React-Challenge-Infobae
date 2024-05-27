@@ -32,7 +32,7 @@ const RegistrationForm = () => {
             .min(6, 'La contraseña debe tener al menos 6 caracteres')
             .required('La contraseña es requerida'),
           confirmPassword: Yup.string()
-            .oneOf([Yup.ref('password'), null], 'Las contraseñas no coinciden')
+            .oneOf([Yup.ref('password')], 'Las contraseñas no coinciden')
             .required('Debes confirmar la contraseña')
         })}
         onSubmit={(values, { setSubmitting }) => {

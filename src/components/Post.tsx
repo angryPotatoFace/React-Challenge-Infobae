@@ -1,12 +1,30 @@
 import { useState } from "react";
-import useFetchComments from "../hooks/fetchComments";
 import ModalComments from "./ModalComments";
+
+interface IComments {
+    id: string,
+    message: string
+    owner: {
+        firstName: string,
+        id: string,
+        lastName: string
+        picture: string,
+        title:string
+    }
+    post: string,
+    publishDate: string
+}
 
 interface IPost {
     title: string,
     tags: [string],
     author: string,
-    img: string
+    img: string,
+    CLoading: boolean,
+    CError: { 
+        message: string
+    }
+    CData: [IComments]
 }
 
 function Post({
@@ -14,13 +32,15 @@ function Post({
     tags,
     author,
     img,
+    CLoading,
+    CError,
+    CData,
 }:IPost){
    
-    const {data, loading, error } = useFetchComments();
     const [modalOpen, setModalComments] = useState(false);
 
-    if (loading) return ;
-    if (error) return <p>Error: {error.message}</p>;
+    if (CLoading) return ;
+    if (CError) return <p>Error: {CError.message}</p>;
 
     return ( 
         <div className="mt-12">
@@ -30,7 +50,7 @@ function Post({
                 <span className="ml-3">Tags:  <span className="font-bold">{tags}</span></span>
             </p>
             <img className="image mt-6" onClick={ () => setModalComments(!modalOpen)} src={img} />
-            <ModalComments show={modalOpen} onClose={ () =>setModalComments(false)} comments={data!} />
+            <ModalComments show={modalOpen} onClose={ () =>setModalComments(false)} comments={CData!} />
         </div> 
     );
 }
